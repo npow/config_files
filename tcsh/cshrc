@@ -1,0 +1,65 @@
+# @(#) .cshrc - 17 Dec 99 Mike potvin
+# Updated     - 07 Feb 02 Joe Tremblay
+
+umask 022
+
+stty erase ^H
+
+setenv HOST `hostname | sed 's/^\([^\.]*\)\..*/\1/'`
+setenv TZ Canada/Eastern
+
+setenv OPENWINHOME /usr/openwin
+setenv BWB_DEBUG true
+setenv EDITOR vim
+
+# use gcc in developer/tools
+setenv cc /developer/tools1/bin/gcc
+
+set CSHRC_OSTYPE = `uname`
+
+# TCSH
+set autoexpand
+set autolist
+set fignore=(.o, .OLD)
+set rmstar
+
+
+if ( $?prompt ) then
+  set history=1000 savehist=50 filec
+  alias cd 'chdir \!* ; setprompt'
+#  alias setprompt 'set prompt="`hostname` (`pwd`) % "'
+#  alias setprompt 'set prompt="\! [%{\033[32m%}%n%{\033[0m%}@`hostname` %{\033[36m%}%/%{\033[0m%}]%{\033]0;%n@`hostname` %/ - %W %D, %Y %t\007%} --> "'
+  alias setprompt 'set prompt="\n-== \! ==- [%{\033[36m%}%n%{\033[36m%}@`hostname` %{\033[33m%}%/%{\033[0m%}]%{\033]0;%n@`hostname` %/ \007%} -->\n% "'
+  setprompt
+endif
+
+setenv MANPATH /usr/man:/usr/local/man:/usr/openwin/man:/usr/dt/man
+setenv MANPATH ${MANPATH}:/developer/tools1/man:/developer/tools1/public/man
+
+set path = ( /developer/tools2/jdk/j2sdk1.4.2_02/j2se/bin /usr/bin /usr/sbin /sbin /usr/local/bin /usr/local/sbin )
+
+set path = ( $path ${OPENWINHOME}/bin )
+set path = ( $path ${HOME}/bin )
+set path = ( $path /developer/tools1/bin /developer/tools1/public/bin )
+set path = ( $path /usr/ucb /usr/ccs/bin )
+set path = ( $path /developer/tools2/SUNWspro/bin )
+set path = ( $path ./ )
+set path = ( $path /opt/csw/bin )
+set path = ( $path /opt/openwin/bin /developer/pv/tools/solaris/GOODies/bin /usr/xpg4/bin )
+
+# setup alias
+if ( -f .alias ) then
+  source .alias
+endif
+
+rehash
+
+#setenv LD_LIBRARY_PATH /home2/n/npow/src/r8/dependency/lib:/developer/tools1/lib:/developer/tools1:/usr/lib:/usr/local/lib:/usr/dt/lib:/usr/openwin/lib:/usr/ucblib:/developer/tools2/oracle/product/9.2/lib:/developer/tools2/ACE_wrappers/5.4.1/SunOS5.8/ace:/developer/tools2/openssl/0.9.7e/SunOS5.8/lib:/developer/tools1/curl/7.10.8/lib:/developer/tools1/curl/7.10.8-nossl/lib:/developer/tools1/Xerces/2.2.0/lib:/developer/tools1/Xerces/2.1.0/lib:/developer/tools1/lib:/developer/tools1/public/ldapsdk/lib:/developer/tools1/ldapsdk/5.08-SunOS5.8/lib:/developer/tools1/openldap/2.2.17/lib:/developer/tools1/lib/expect-5.30:/developer/tools1/lib:/developer/tools1/bison/1.27:/developer/tools1/expat/1.95.4/lib:/developer/tools2/TimesTen/5.1.24/lib:/developer/tools2/Xerces/2.6.0-GNU/lib:/developer/tools2/ACE_wrappers/5.4.1/SunOS5.8-GNU/ace:/home2/n/npow/src/r8/clients/radius/lib
+
+setenv EXINIT 'map! OA kl|map! OB jl|map! OD hl|map! OC ll'
+
+#setenv DISPLAY 192.168.150.227:1.0
+
+setenv SHELL tcsh
+setenv snmp16 /developer/tools2/snmp/16.1.0.54
+setenv snmp15 /developer/tools1/snmp15.4.1.0

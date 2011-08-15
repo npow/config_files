@@ -1,0 +1,35 @@
+aterm*saveLines:  5000
+aterm*background: black
+aterm*foreground: white
+aterm*font:       9x15
+
+# Font Settings
+aterm*colorBD:    green
+aterm*colorRV:    #2020ee
+aterm*colorUL:    yellow
+aterm*shading:    35
+aterm*fading:     50
+aterm*font1:      kates
+aterm*font2:      8x16
+aterm*font3:      10x20
+aterm*font4:      12x24
+
+# Aterm Colors
+*VT100*color0:    black
+*VT100*color1:    red3
+*VT100*color2:    green3
+*VT100*color3:    yellow3
+*VT100*color4:    blue3
+*VT100*color5:    magenta3
+*VT100*color6:    cyan3
+*VT100*color7:    gray90
+*VT100*color8:    gray30
+*VT100*color9:    red
+*VT100*color10:   green
+*VT100*color11:   yellow
+*VT100*color12:   blue
+*VT100*color13:   magenta
+*VT100*color14:   cyan
+*VT100*color15:   white
+*VT100*colorUL:   yellow
+*VT100*colorBD:   white
