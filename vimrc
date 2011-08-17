@@ -1,3 +1,5 @@
+set guifont=Menlo:h14
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -23,7 +25,7 @@ map Q gq
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  set nohlsearch
+  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -69,6 +71,7 @@ endif " has("autocmd")
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Always display the status line
@@ -136,7 +139,7 @@ imap <C-F> <C-R>=expand("%")<CR>
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,extends:>,precedes:<,eol:¸
+"set list listchars=tab:ï¿½ï¿½,trail:ï¿½,extends:>,precedes:<,eol:ï¿½
 
 " Edit routes
 command! Rroutes :e config/routes.rb
@@ -153,7 +156,7 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme vividchalk
+colorscheme desert
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
