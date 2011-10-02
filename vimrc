@@ -26,6 +26,7 @@ map Q gq
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
+  set ignorecase
 endif
 
 " Only do this part when compiled with support for autocommands.
