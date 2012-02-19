@@ -85,7 +85,7 @@ alias rs="rails s"
 alias rg="rails g"
 
 # other stuff
-#alias s="screen"
+alias s="screen"
 
 # screen replacement
 alias tu="tmux"

@@ -10,3 +10,5 @@ source ~/.bash/configs
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
+
+export TERM=xterm-color
