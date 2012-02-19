@@ -6,7 +6,7 @@
   branch = auto
 [core]
   excludesfile = ~/.gitignore
-  editor = e -w
+	editor = /usr/bin/vim
   autocrlf = input
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
