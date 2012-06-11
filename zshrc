@@ -89,3 +89,4 @@ fi
 
 source .bash/aliases
 export TERM=xterm-color
+unsetopt correct_all
