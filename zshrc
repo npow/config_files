@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="clean"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,7 +43,7 @@ if [[ $TERM == "screen" ]]; then
 
   # use the current user as the prefix of the current tab title (since that's
   # fairly important, and I change it fairly often)
-  TAB_TITLE_PREFIX='"`'$_GET_PATH' | sed "s:..*/::"`$PROMPT_CHAR"'
+  TAB_TITLE_PREFIX=''
   # when at the shell prompt, show a truncated version of the current path (with
   # standard ~ replacement) as the rest of the title.
   TAB_TITLE_PROMPT='$SHELL:t'
