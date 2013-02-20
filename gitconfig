@@ -30,7 +30,7 @@
   rc = rebase --continue
   ra = rebase --abort
   ri = rebase -i
-  me = log --date=local --pretty=short --author=pitr.vern@gmail.com --stat
+  me = log --date=local --pretty=short --author=nissan.pow@gmail.com --stat
   qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
   g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %C(yellow)%an%Creset)%Creset' --abbrev-commit --date=relative
   ci = commit
@@ -39,7 +39,7 @@
   rb = rebase
   f = flow
 [user]
-  name = pitr
-  email = pitr.vern@gmail.com
+  name = npow
+  email = nissan.pow@gmail.com
 [branch]
 	autosetuprebase = always

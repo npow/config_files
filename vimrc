@@ -1,4 +1,4 @@
-set guifont=Menlo:h14
+"set guifont=Monospace:h10
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
