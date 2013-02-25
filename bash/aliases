@@ -40,13 +40,13 @@ alias bi='bundle install'
 alias bu='bundle update'
 
 # git stuff
-g() {
-  if [[ $# == '0' ]]; then
-    git s
-  else
-    git "$@"
-  fi
-}
+#g() {
+#  if [[ $# == '0' ]]; then
+#    git s
+#  else
+#    git "$@"
+#  fi
+#}
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
@@ -104,3 +104,4 @@ alias hsd="hack && ship && deploy"
 alias hrs="hack && rake && ship"
 
 alias pp="git pull --rebase && git push"
+alias g="gvim --remote-tab-silent"
