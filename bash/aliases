@@ -72,9 +72,9 @@ alias sta="git stash"
 alias uns="git stash pop"
 
 # file system stuff
-alias ls="ls -Fh"
-alias ll="ls -Al"
-alias l="ls -AF"
+alias ls="ls -FhG"
+alias ll="ls -AlG"
+alias l="ls -AFG"
 function c { cd ~/code/$1; }
 alias ..='cd ..'
 
@@ -86,6 +86,7 @@ alias rg="rails g"
 
 # other stuff
 alias s="screen"
+alias h="history"
 
 # screen replacement
 alias tu="tmux"
@@ -103,3 +104,6 @@ alias hsd="hack && ship && deploy"
 alias hrs="hack && rake && ship"
 
 alias pp="git pull --rebase && git push"
+
+alias m='mvim --remote-tab-silent'
+alias mysql='/Applications/MAMP/Library/bin/mysql'

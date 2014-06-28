@@ -1,3 +1,10 @@
+if ENV['RAILS_ENV']
+  require 'rubygems'
+  require 'hirb'
+  require 'active_record'
+  Hirb.enable
+end
+
 # print SQL to STDOUT
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   require 'logger'

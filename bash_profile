@@ -12,3 +12,5 @@ if [ -f ~/.bashrc ]; then
 fi
 
 export TERM=xterm-color
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'

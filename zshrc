@@ -33,9 +33,6 @@ ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/opt/local/sbin:/Users/npow/.rvm/gems/ruby-1.9.2-p290@rails309/bin:/Users/npow/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/npow/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/npow/.rvm/bin:./node_modules/.bin:/Users/npow/bin:.
-
 # if using GNU screen, let the zsh tell screen what the title and hardstatus
 # of the tab window should be.
 if [[ $TERM == "screen" ]]; then
@@ -87,5 +84,20 @@ if [[ $TERM == "screen" ]]; then
   }
 fi
 
-source .bash/aliases
+source $HOME/.bash/aliases
 export TERM=xterm-color
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
+
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/opt/local/sbin:/Users/npow/.rvm/bin:./node_modules/.bin:/Users/npow/bin:.:/usr/local/mysql/bin
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
+unsetopt correct
+
+source /opt/local/setup.zsh
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
