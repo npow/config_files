@@ -1,30 +1,80 @@
-if ENV['RAILS_ENV']
-  require 'rubygems'
-  require 'hirb'
-  require 'active_record'
+require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
+
+def unbundled_require(gem)
+
+  loaded = false
+
+  if defined?(::Bundler)
+
+    Gem.path.each do |gems_path|
+      gem_path = Dir.glob("#{gems_path}/gems/#{gem}*").last
+      unless gem_path.nil?
+        $LOAD_PATH << "#{gem_path}/lib"
+        require gem
+        loaded = true
+      end
+    end
+
+  else
+    require gem
+    loaded = true
+  end
+
+  raise(LoadError, "couldn't find #{gem}") unless loaded
+
+  loaded
+
+end
+
+def load_gem(gem, &block)
+
+  begin
+
+    if unbundled_require gem
+      yield if block_given?
+    end
+
+  rescue Exception => err
+    warn "Couldn't load #{gem}: #{err}"
+  end
+
+end
+
+# Highlighting and other features
+load_gem 'wirble' do
+  Wirble.init
+  Wirble.colorize
+end
+
+# Improved formatting for objects
+load_gem 'awesome_print'
+
+# Improved formatting for collections
+load_gem 'hirb' do
   Hirb.enable
 end
 
-# print SQL to STDOUT
-if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+# Show log in Rails console
+if defined? Rails
   require 'logger'
-  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+  if Rails.version =~ /^2\./ # Rails 2.3
+     Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(STDOUT))
+  else # Rails 3
+     ActiveRecord::Base.logger = Logger.new(STDOUT) if defined? ActiveRecord
+  end
+end
+
+# Enable route helpers in Rails console
+if defined? Rails
+  include Rails.application.routes.url_helpers
+  default_url_options[:host] = 'localhost'
+  default_url_options[:port] = 3000
 end
 
 # Autocomplete
 require 'irb/completion'
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-
-%w[rubygems looksee wirble].each do |g|
-  begin
-    require g
-  rescue LoadError
-    warn "- Might want to gem install #{g}"
-  end
-end
-
-Looksee.editor = "mate -l%l %f" if defined? Looksee
 
 # Prompt behavior
 ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
@@ -39,7 +89,7 @@ class Object
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
-  
+
   # print documentation
   #
   #   ri 'Array#pop'
