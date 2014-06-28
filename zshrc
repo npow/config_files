@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="clean"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,7 +40,7 @@ if [[ $TERM == "screen" ]]; then
 
   # use the current user as the prefix of the current tab title (since that's
   # fairly important, and I change it fairly often)
-  TAB_TITLE_PREFIX='"`'$_GET_PATH' | sed "s:..*/::"`$PROMPT_CHAR"'
+  TAB_TITLE_PREFIX=''
   # when at the shell prompt, show a truncated version of the current path (with
   # standard ~ replacement) as the rest of the title.
   TAB_TITLE_PROMPT='$SHELL:t'
@@ -84,8 +84,10 @@ if [[ $TERM == "screen" ]]; then
   }
 fi
 
+export PS1="%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}"
 source $HOME/.bash/aliases
 export TERM=xterm-color
+
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/opt/local/sbin:/Users/npow/.rvm/bin:./node_modules/.bin:/Users/npow/bin:.:/usr/local/mysql/bin
@@ -97,6 +99,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
 unsetopt correct
+unsetopt correct_all
 
 source /opt/local/setup.zsh
 export LESS='-R'

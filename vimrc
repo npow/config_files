@@ -1,4 +1,4 @@
-set guifont=Menlo:h14
+"set guifont=Monospace:h10
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -26,8 +26,9 @@ map Q gq
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
-  set ignorecase
 endif
+
+set ignorecase
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")

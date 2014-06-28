@@ -40,20 +40,20 @@ alias bi='bundle install'
 alias bu='bundle update'
 
 # git stuff
-g() {
-  if [[ $# == '0' ]]; then
-    git s
-  else
-    git "$@"
-  fi
-}
+#g() {
+#  if [[ $# == '0' ]]; then
+#    git s
+#  else
+#    git "$@"
+#  fi
+#}
 alias gadd="git add -u && git add . && git status"
 alias gi="gem install"
 alias gs="git s"
 alias ga="git a"
 alias gst="git st"
 alias gb="git b"
-alias gc="git c"
+#alias gc="git c"
 alias gd="git d"
 alias gdc="git dc"
 alias gpl="git pl"
@@ -72,9 +72,16 @@ alias sta="git stash"
 alias uns="git stash pop"
 
 # file system stuff
-alias ls="ls -FhG"
-alias ll="ls -AlG"
-alias l="ls -AFG"
+if [[ "`uname`" == "Darwin" ]]; then
+  alias ls="ls -FhG"
+  alias ll="ls -AlG"
+  alias l="ls -AFG"
+else
+  alias ls="ls -Fh --color=auto"
+  alias ll="ls -Al --color=auto"
+  alias l="ls -AF --color=auto"
+fi
+
 function c { cd ~/code/$1; }
 alias ..='cd ..'
 
@@ -95,6 +102,7 @@ alias tun="tmux new -s"
 alias tus="tmux switch-client -t"
 
 alias v="vim"
+alias vi="vim"
 alias p="python"
 alias e.='e .'
 
@@ -105,5 +113,6 @@ alias hrs="hack && rake && ship"
 
 alias pp="git pull --rebase && git push"
 
-alias m='mvim --remote-tab-silent'
+alias m="mvim --remote-tab-silent"
+alias g="gvim --remote-tab-silent"
 alias mysql='/Applications/MAMP/Library/bin/mysql'
