@@ -180,4 +180,4 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 
-execute pathogen#infect()
+"execute pathogen#infect()
