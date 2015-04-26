@@ -6,6 +6,8 @@ startup_message off
 # below)
 hardstatus off
 
+altscreen on
+
 # use the caption line for the computer name, load, hstatus (as set by zsh), & time
 # the caption line gets repeated for each window being displayed (using :split),
 # so we'll use color cues to differentiate the caption of the current, active
